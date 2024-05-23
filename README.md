@@ -1,1 +1,1 @@
-# Machine kearning
+# Machine learning
