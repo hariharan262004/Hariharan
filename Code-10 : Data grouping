@@ -1,0 +1,29 @@
+import pandas as pd 
+df = pd.DataFrame({'Animal': ['Falcon', 'Falcon', 
+'Parrot', 'Parrot'], 
+'Max Speed': [380., 370., 24., 26.]}) 
+        print(df)
+#Group by through Column using mean 
+a=df.groupby(['Animal']).mean() 
+print("\nOriginal DataFrame\n",df) 
+print("\nGroup by through Column using mean\n",a) 
+#Group by through Column using sum 
+b=df.groupby(['Animal']).sum() 
+print("\nOriginal DataFrame\n",df) 
+print("\nGroup by through Column using sum\n",b) 
+#Group by through Column using count 
+c=df.groupby(['Animal']).count() 
+print("\nOriginal DataFrame\n",df) 
+print("\nGroup by through Column using count\n",c) 
+#Group by through Column using first 
+d=df.groupby(['Animal']).first() 
+print("\nOriginal DataFrame\n",df) 
+print("\nGroup by through Column using first\n",d) 
+#Group by through Column using last 
+e=df.groupby(['Animal']).last() 
+print("\nOriginal DataFrame\n",df) 
+print("\nGroup by through Column using last\n",e) 
+#Group by through Column using size 
+f=df.groupby(['Animal']).size() 
+print("\nOriginal DataFrame\n",df) 
+print("\nGroup by through Column using size\n",f)
