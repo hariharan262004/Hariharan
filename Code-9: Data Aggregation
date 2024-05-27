@@ -1,0 +1,33 @@
+import pandas as pd 
+import numpy as np 
+df = pd.DataFrame([[1, 2, 3], 
+[4, 5, 6], 
+[7, 8, 9], 
+[np.nan, np.nan, np.nan]], 
+columns=['A', 'B', 'C']) 
+print("Original DataFrame\n",df) 
+print("Aggregate function: aggregate()\n", df.aggregate(['sum'])) 
+print("Aggregate function: alias agg()\n", df.agg(['sum'])) 
+#Aggregate function to produce sum, min and max 
+a=df.agg(['sum', 'min', 'max']) 
+print("\nOriginal DataFrame\n",df) 
+print("\nAggregate function to produce sum, min and max\n",a) 
+#Different aggregations per column. 
+b=df.agg({'A': ['sum', 'min'], 'B': ['min', 'max']}) 
+print("\nOriginal Data Frame\n",df) 
+print("\nDifferent aggregations per column\n",b) 
+#Aggregate different functions over the columns and rename the index of the resulting DataFrame. 
+c=df.agg(x=('A', max), y=('B', 'min'), z=('C', np.mean)) 
+print("\nOriginal DataFrame\n",df) 
+print("\nAggregate different functions over the columns and rename the index of the resulting DataFrame\n",c) 
+#Aggregate over the rows. 
+d=df.agg("sum", axis="columns") 
+print("\nOriginal DataFrame\n",df) 
+print("\nAggregate-Sum: row wise\n",d) 
+#Aggregate over the columns. 
+e=df.agg("sum", axis="rows") 
+print("\nOriginal DataFrame\n",df) 
+print("\nAggregate-Sum: Column wise\n", e) 
+#Summary of aggregate functions using describe() 
+print("\nOriginal DataFrame\n",df) 
+print("\nSummary of aggregate functions using describe()\n",df.describe())
